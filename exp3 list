@@ -1,0 +1,57 @@
+import 'package:flutter/material.dart';
+void main() {
+ runApp(const MyApp());
+}
+class MyApp extends StatelessWidget {
+ const MyApp({super.key});
+ // This widget is the root of your application.
+ @override
+ Widget build(BuildContext context) {
+ List<String> images = [
+ "images/pizza.jpeg",
+ "images/donut.jpg",
+ "images/cupcake.jpg",
+ "images/ginger.jpg",
+ "images/smothie.jpg",
+ ];
+ List<String> names = [
+ "Pizza",
+ "Donut",
+ "Cupcake",
+ "Gingerbread",
+ "Smothie"
+ ];
+ List<String> names1 = [
+ "Price \$12.99",
+ "Price \$5.99",
+ "Price \$6.99",
+ "Price \$5.99",
+ "Price \$8.99"
+ ];
+ return MaterialApp(
+ title: 'My FLUTTER App',
+ theme: ThemeData(primarySwatch: Colors.blueGrey),
+ home: Scaffold(
+ appBar: AppBar(
+ backgroundColor: Colors.blue, title: const Text("My Food 
+List")),
+ body: ListView.builder(
+ itemBuilder: (buildcontext, index) {
+ return Card(
+ child: ListTile(
+ leading: CircleAvatar(
+ backgroundImage: AssetImage(images[index]),
+ ),
+ title: Text(names[index]),
+ subtitle: Text(names1[index]),
+ ),
+ );
+ },
+ itemCount: images.length,
+ shrinkWrap: true,
+ padding: const EdgeInsets.all(5),
+ scrollDirection: Axis.vertical,
+ ),
+ ));
+ }
+}
